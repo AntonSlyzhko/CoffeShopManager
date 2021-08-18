@@ -1,0 +1,17 @@
+.idea/*
+
+target/*
+src/test/**
+
+*.class
+
+*.log
+
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+

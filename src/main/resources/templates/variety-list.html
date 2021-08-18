@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Varieties</title>
+</head>
+<body>
+<div th:switch="${varieties}">
+    <h2 th:case="null">No varieties found!</h2>
+    <div th:case="*">
+        <h2>Varieties</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Net Weight</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="variety : ${varieties}">
+                <td th:text="${variety.id}"></td>
+                <td th:text="${variety.name}"></td>
+                <td th:text="${variety.weight}"></td>
+                <td th:text="${variety.price}"></td>
+                <td><a th:href="@{variety-update/{id}(id=${variety.id})}">Edit</a></td>
+                <td><a th:href="@{variety-delete/{id}(id=${variety.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/variety-create">Create variety</a></p>
+</div>
+
+</body>
+</html>
