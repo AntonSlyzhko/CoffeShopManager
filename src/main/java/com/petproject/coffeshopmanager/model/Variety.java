@@ -1,20 +1,23 @@
 package com.petproject.coffeshopmanager.model;
 
 import lombok.Data;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "varieties")
+@Table
 public class Variety {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @SequenceGenerator(
+            name = "variety_sequence",
+            sequenceName = "variety_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "variety_sequence"
+    )
     private Long id;
 
     @Column(name = "name")
